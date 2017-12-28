@@ -18,8 +18,12 @@ public class Runner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Sending message Pedro...");
-		rabbitTemplate.convertAndSend(Application.queueName, "Hello from RabbitMQ!");
+		
+		
+		for(int i = 0; i < 100; i++) {
+			System.out.println("Sending message Pedro...");
+			rabbitTemplate.convertAndSend(Application.queueName, "Hello from RabbitMQ!");
+		}
 		context.close();
 	}
 
